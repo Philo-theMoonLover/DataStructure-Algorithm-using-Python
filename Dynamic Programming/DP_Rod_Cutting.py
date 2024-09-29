@@ -12,7 +12,7 @@ def cutRod(price, index, n):
     cut = float("-inf")
     rod_length = index + 1
 
-    if (rod_length <= n):
+    if rod_length <= n:
         cut = price[index] + cutRod(price, index, n - rod_length)
     print('Compare',str(notCut).rjust(2), 'and', str(cut).rjust(4), ':',max(notCut,cut))
     return max(notCut, cut)

@@ -1,7 +1,7 @@
-'''
+"""
 1: Red
 0: Black
-'''
+"""
 
 
 # Define Node
@@ -43,7 +43,7 @@ class RBTree:
                 x = x.right  # Xuống node con phải
 
         node.parent = y  # Set parent of Node as y
-        if y == None:  # If parent i.e, is none then it is root node
+        if y is None:  # If parent i.e, is none then it is root node
             self.root = node
         elif node.val < y.val:  # Check if it is right Node or Left Node by checking the value
             y.left = node
@@ -72,7 +72,7 @@ class RBTree:
             y.left.parent = x
 
         y.parent = x.parent  # Change parent of y as parent of x
-        if x.parent == None:  # If parent of x == None ie. root node
+        if x.parent is None:  # If parent of x == None ie. root node
             self.root = y  # Set y as root
         elif x == x.parent.left:
             x.parent.left = y
@@ -89,7 +89,7 @@ class RBTree:
             y.right.parent = x
 
         y.parent = x.parent  # Change parent of y as parent of x
-        if x.parent == None:  # If x is root node
+        if x.parent is None:  # If x is root node
             self.root = y  # Set y as root
         elif x == x.parent.right:
             x.parent.right = y
@@ -186,7 +186,7 @@ class RBTree:
 
     # Function to transplant nodes
     def __rb_transplant(self, u, v):
-        if u.parent == None:
+        if u.parent is None:
             self.root = v
         elif u == u.parent.left:
             u.parent.left = v
@@ -215,7 +215,7 @@ class RBTree:
         if z.left == self.NULL:  # If left child of z is NULL
             x = z.right  # Assign right child of z to x
             self.__rb_transplant(z, z.right)  # Transplant Node to be deleted with x
-        elif (z.right == self.NULL):  # If right child of z is NULL
+        elif z.right == self.NULL:  # If right child of z is NULL
             x = z.left  # Assign left child of z to x
             self.__rb_transplant(z, z.left)  # Transplant Node to be deleted with x
         else:  # If z has both the child nodes

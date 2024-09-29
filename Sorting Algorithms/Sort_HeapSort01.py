@@ -90,4 +90,3 @@ if __name__ == "__main__":
     # minHeap.printHeap()
     for i in range(1,k+1):  # 1 to k
         minHeap.remove(k)
-
